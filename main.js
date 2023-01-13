@@ -8,7 +8,8 @@ function toSeconds(time) {
 }
 
 function format(timeValue) {
-	return timeValue.toString().padStart(2, '0');
+	timeValue = timeValue.toString();
+	return timeValue.padStart(2 + timeValue.replace(/^[^.]+/, '').length, '0');
 } 
 
 function toString(seconds) {
