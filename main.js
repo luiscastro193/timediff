@@ -24,21 +24,10 @@ function updateDifference() {
 	difference.textContent = toString(Math.abs(toSeconds(time1) - toSeconds(time2)));
 }
 
-function selectInput(input) {
-	setTimeout(function() {
-		try {
-			input.setSelectionRange(0, input.value.length);
-		}
-		catch(e) {
-			input.select();
-		}
-	}, 0);
-}
-
 for (let input of document.querySelectorAll('input')) {
 	input.addEventListener('input', updateDifference);
 	input.addEventListener('mouseenter', () => input.focus());
-	input.addEventListener('focus', () => selectInput(input));
+	input.addEventListener('focus', () => input.select());
 }
 
 updateDifference();
